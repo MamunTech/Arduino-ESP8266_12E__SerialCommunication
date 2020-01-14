@@ -19,13 +19,13 @@ void loop() {
     DynamicJsonDocument doc(1024); // ArduinoJson version 6+
     // Attempt to deserialize the message
     DeserializationError error = deserializeJson(doc,message);
-    /* //to decode any error fot arduino and esp8266 serial commnicaiton
+    //to decode any error fot arduino and esp8266 serial commnicaiton
     if(error) {
       Serial.print(F("deserializeJson() failed: "));
       Serial.println(error.c_str());
       messageReady = false;
       return;
-    }*/
+    }
     if(doc["type"] == "request") {
       doc["type"] = "response";
       // Get data from analog sensors
